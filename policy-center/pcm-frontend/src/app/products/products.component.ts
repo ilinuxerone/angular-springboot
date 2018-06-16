@@ -31,6 +31,7 @@ export class ProductsComponent implements OnInit {
       }];
 
  private productId: number;
+ private productName: string;
 
   constructor(private routeInfo: ActivatedRoute) { }
 
@@ -40,7 +41,16 @@ export class ProductsComponent implements OnInit {
    // this.productId = this.routeInfo.snapshot.params["id"];
    //参数订阅
    this.routeInfo.params.subscribe((params: Params) =>{this.productId=params["id"]});
+   this.routeInfo.data.subscribe((data: {
+     product: Product
+   }) => {this.productId=data.product.id, this.productName=data.product.name})
     console.log(this.productId);
   }
 
+}
+
+export class Product{
+  constructor(public id: number, public name: string){
+
+  }
 }

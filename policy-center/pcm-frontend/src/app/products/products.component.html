@@ -1,4 +1,4 @@
-<div class='card border-primary'>
+<div class='card border-primary product'>
   <div class='card-header'>
       MR Zhang
   </div>
@@ -43,4 +43,14 @@
           </table>
       </div>
   </div>
+
+  <p>
+      here is product info
+  </p>
+  <p>
+      product id: {{productId}}
+    </p>
+    <a [routerLink]="['./']">product desc</a>
+    <a [routerLink]="['./seller', 99]">seller info</a>
+  <router-outlet></router-outlet>
 </div>
