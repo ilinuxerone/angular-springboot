@@ -12,7 +12,7 @@ export class ProductResolve implements Resolve<Product> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Product | Observable<Product> | Promise<Product> {
         let productId: number = route.params["id"];
         if (1 == productId){
-            return new Product(1, "iphone7","tets",33,"test");
+            return new Product(1, "iphone7","tets",33,"test","",1,"");
         }else{
             this.router.navigate(['/home']);
         }

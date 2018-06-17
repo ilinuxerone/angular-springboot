@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
 import { ProductService } from './product.service';
 import { LogService } from './log.service';
+import { Product } from '../products/products.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnotherproductService implements ProductService {
 
-  getProduct(): any[] {
+  getProductById(id: number): Product {
+    throw new Error("Method not implemented.");
+  }
+  getProducts(): Product[] {
+    throw new Error("Method not implemented.");
+  }
+  public products: Product[];
+
+  getProduct(): Product[] {
     this.logger.log("getProduct method called!");
-    let products: any[] = [
+     this.products = [
       {
         "productId": 3,
         "productName": "ano1",
@@ -30,7 +39,7 @@ export class AnotherproductService implements ProductService {
         "starRating": 4.2,
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
       }];
-    return products;
+    return this.products;
   }
   constructor(public logger: LogService) { }
 }

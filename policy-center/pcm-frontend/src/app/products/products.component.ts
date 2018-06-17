@@ -35,8 +35,8 @@ export class ProductsComponent implements OnInit {
     this.routeInfo.data.subscribe((data: {
       product: Product
     }) => {
-    this.productId = data.product.id,
-      this.productName = data.product.name
+    this.productId = data.product.productId,
+      this.productName = data.product.productName
     })
     console.log(this.productId);
   }
@@ -45,11 +45,14 @@ export class ProductsComponent implements OnInit {
 
 export class Product {
   constructor(
-    public id: number,
-    public name: string,
-    public title3: string,
+    public productId: number,
+    public productName  : string,
+    public productCode: string,
     public price: number,
-    public desc: string
+    public releaseDate: string,
+    public description: string,
+    public starRating: number,
+    public imageUrl: string
   ) {
 
   }

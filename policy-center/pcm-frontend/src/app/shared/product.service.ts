@@ -8,10 +8,10 @@ import { LogService } from './log.service';
 export class ProductService {
 
   constructor(public logger: LogService) { }
-
+  public  products: Product[];
   getProduct() : any[]{
     this.logger.log("getProduct method called!");
-   let products: any[] = [
+    this.products = [
       {
         "productId": 1,
         "productName": "Grabie",
@@ -32,6 +32,15 @@ export class ProductService {
         "starRating": 4.2,
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
       }];
-    return products;
+    return this.products;
   }
+
+  getProducts(){
+    return this.products;
+  }
+
+  getProductById(id:number): Product{
+    return this.products.find((product) => product.productId == id);
+  }
+
 }
