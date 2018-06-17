@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../products/products.component';
+import { ProductService } from './product.service';
 import { LogService } from './log.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class AnotherproductService implements ProductService {
 
-  constructor(public logger: LogService) { }
-
-  getProduct() : any[]{
+  getProduct(): any[] {
     this.logger.log("getProduct method called!");
-   let products: any[] = [
+    let products: any[] = [
       {
-        "productId": 1,
-        "productName": "Grabie",
+        "productId": 3,
+        "productName": "ano1",
         "productCode": "GDN-0011",
         "releaseDate": "19.03.2016",
         "description": "Grabie ogrodowe z drewnanym trzonkiem.",
@@ -23,8 +21,8 @@ export class ProductService {
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
       },
       {
-        "productId": 2,
-        "productName": "Wózek ogrodowy",
+        "productId": 4,
+        "productName": "ano2",
         "productCode": "GDN-0023",
         "releaseDate": "18.03.2016",
         "description": "Wózek ogrodowy o pojemności 50 litrów",
@@ -34,4 +32,5 @@ export class ProductService {
       }];
     return products;
   }
+  constructor(public logger: LogService) { }
 }

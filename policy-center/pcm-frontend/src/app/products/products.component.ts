@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ProductService } from '../shared/product.service';
+import { AnotherproductService } from '../shared/anotherproduct.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
+  providers:[{
+    provide: ProductService,
+    useClass: AnotherproductService
+  }]
 })
 export class ProductsComponent implements OnInit {
   pageTitle = 'Lista produktów';
