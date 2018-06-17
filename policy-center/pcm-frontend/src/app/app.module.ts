@@ -13,6 +13,7 @@ import { SellerInfoComponent } from './seller-info/seller-info.component';
 import { ChatComponent } from './chat/chat.component';
 import { ProductService } from './shared/product.service';
 import { LogService } from './shared/log.service';
+import { AnotherproductService } from './shared/anotherproduct.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,23 @@ import { LogService } from './shared/log.service';
     FormsModule   ,
     AppRoutingModule
   ],
-  providers: [ProductService,LogService],
+  providers: [
+    {
+      provide: ProductService,
+      useFactory: (logger: LogService, appConfig) =>{
+        if (appConfig.isDev){
+          return new ProductService(logger);
+        }else{
+          return new AnotherproductService(logger);
+        }
+      },
+      deps: [LogService, "APP_CONFIG"]
+    },
+    {
+      provide: "APP_CONFIG",
+      useValue:{isDev: false}
+    },
+    LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
