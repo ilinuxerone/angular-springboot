@@ -21,6 +21,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { Upper } from './shared/pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     CarouselComponent,
     NavbarComponent,
     FooterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    Upper
   ],
   imports: [
     BrowserModule,
