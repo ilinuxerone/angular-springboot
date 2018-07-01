@@ -31,7 +31,10 @@ export class ProductsComponent implements OnInit {
     //this.productId = this.routeInfo.snapshot.queryParams["id"];
     // this.productId = this.routeInfo.snapshot.params["id"];
     //参数订阅
+    //this.routeInfo.queryParams.subscribe
     this.routeInfo.params.subscribe((params: Params) => { this.productId = params["id"] });
+
+    //获取路由守卫中加载的数据
     this.routeInfo.data.subscribe((data: {
       product: Product
     }) => {
