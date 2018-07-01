@@ -14,6 +14,12 @@ import { ChatComponent } from './chat/chat.component';
 import { ProductService } from './shared/product.service';
 import { LogService } from './shared/log.service';
 import { AnotherproductService } from './shared/anotherproduct.service';
+import { ProductComponent } from './product/product.component';
+import { StarsComponent } from './stars/stars.component';
+import { SearchComponent } from './search/search.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import { AnotherproductService } from './shared/anotherproduct.service';
     Code404Component,
     ProductDescComponent,
     SellerInfoComponent,
-    ChatComponent
+    ChatComponent,
+    ProductComponent,
+    StarsComponent,
+    SearchComponent,
+    CarouselComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
