@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../shared/model/product';
 import { ProductService } from '../shared/product.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -11,8 +12,14 @@ export class ProductComponent implements OnInit {
 
   private products: Array<Product> = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) 
+  {
+    this.titleFilter.valueChanges.subscribe(value=>this.keyword=value)
+   }
 
+  private keyword: string;
+
+  private titleFilter: FormControl = new FormControl();
   ngOnInit() {
     // this.products = [
     //     new Product(1,"first product",1.99, 3.1, "first product desc" ,  ["电子产品", "硬件设备"]),

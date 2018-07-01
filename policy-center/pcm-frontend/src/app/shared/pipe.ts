@@ -10,3 +10,21 @@ export class Upper implements PipeTransform {
         return value.toUpperCase();
     }
 }
+
+@Pipe({
+    name:'filterForm'
+})
+export class FilterForm implements PipeTransform {
+    transform(list: any[], filterField: string, keyword: string) : any{
+        
+        if (!filterField || !keyword){
+            return list;
+        }
+
+        return list.filter(item=>{
+            let fieldValue = item[filterField];
+            return fieldValue.indexOf(keyword) >=0;
+        });
+
+    }
+}
