@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'home', component: HomeComponent
     },
     {
-        path: 'product/:productTitle', component: ProductDetailComponent
+        path: 'product/:productId', component: ProductDetailComponent
     },
     /**辅助路由(兄弟关系) */
     {

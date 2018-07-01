@@ -1,46 +1,41 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../products/products.component';
 import { LogService } from './log.service';
+import { Comment } from './model/comment';
+import { Product } from './model/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
+  private comments: Comment[] = [
+    new Comment(1, 1, "2018-02-02 22:22:22", "zhang san", 3, "good"),
+    new Comment(2, 1, "2018-02-02 22:22:22", "zhang san", 3, "good"),
+    new Comment(3, 1, "2018-02-02 22:22:22", "zhang san", 3, "good"),
+    new Comment(4, 1, "2018-02-02 22:22:22", "zhang san", 3, "good")
+  ]
+
+  getCommentsForProductId(id: number): Comment[] {
+    return this.comments.filter((comment: Comment) => comment.id == id)
+  }
+
   constructor(public logger: LogService) { }
-  public  products: Product[];
-  getProduct() : any[]{
-    this.logger.log("getProduct method called!");
-    this.products = [
-      {
-        "productId": 1,
-        "productName": "Grabie",
-        "productCode": "GDN-0011",
-        "releaseDate": "19.03.2016",
-        "description": "Grabie ogrodowe z drewnanym trzonkiem.",
-        "price": 19.95,
-        "starRating": 3.2,
-        "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
-      },
-      {
-        "productId": 2,
-        "productName": "Wózek ogrodowy",
-        "productCode": "GDN-0023",
-        "releaseDate": "18.03.2016",
-        "description": "Wózek ogrodowy o pojemności 50 litrów",
-        "price": 32.99,
-        "starRating": 4.2,
-        "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
-      }];
+  private products = [
+    new Product(1, "first product", 1.99, 3.1, "first product desc", ["电子产品", "硬件设备"]),
+    new Product(2, "second", 2.12, 3.2, "第二个product desc", ["电子产品", "硬件设备"]),
+    new Product(3, "third", 2.13, 4.3, "第三个 product desc", ["硬件设备"]),
+    new Product(4, "forth", 2.14, 5.4, "第四个 product desc", ["电子产品", "硬件设备"]),
+    new Product(5, "fifth", 2.15, 6.5, "第五个 product desc", ["电子产品", "硬件设备"]),
+    new Product(6, "sisth", 2.16, 3.6, "第六个 product desc", ["图书"])
+  ];
+
+
+  getProducts() {
     return this.products;
   }
 
-  getProducts(){
-    return this.products;
-  }
-
-  getProductById(id:number): Product{
-    return this.products.find((product) => product.productId == id);
+  getProductById(id: number): Product {
+    return this.products.find((product) => product.id == id);
   }
 
 }

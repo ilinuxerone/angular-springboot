@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
   constructor(private routeInfo: ActivatedRoute, private productService: ProductService) { }
 
   loaddata(){
-    this.products = this.productService.getProduct();
+    this.products = this.productService.getProducts();
   }
 
   ngOnInit() {

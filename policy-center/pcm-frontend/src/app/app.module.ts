@@ -59,7 +59,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     },
     {
       provide: "APP_CONFIG",
-      useValue:{isDev: false}
+      useValue:{isDev: true}
     },
     LogService],
   bootstrap: [AppComponent]
